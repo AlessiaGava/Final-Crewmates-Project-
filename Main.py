@@ -13,16 +13,16 @@ def my_input():
 
 def info_player():
     print("You chose to have more info about the volleyball player.\n")
-    sys.exit("End program")
+
 
 
 def info_team():
     print("You chose to have more info about the volleyball team.\n")
-    sys.exit("End program")
+
 
 
 def my_quit():
-    sys.exit("You chose to quit the program.\n")
+    print("You chose to quit the program.\n")
 
 
 # map the inputs to the function blocks
@@ -32,15 +32,19 @@ options = {
     "Q": my_quit,
 }
 
-choice = my_input()    
-    
 while True:
+
+    choice = my_input()
     if choice == "A" or choice == "B" or choice == "Q":
         options[choice]()
+
     else:
         print("Your choice is not correct!!\n")
         # sleep for 2 seconds after printing output 
         sleep(2)
         system('cls')
         choice = my_input()
-        
+
+    if choice == "Q":
+        break
+
