@@ -32,6 +32,13 @@ class DataBase():
     def show_col(self):
         return self.conn.execute("PRAGMA table_info(volley_player);").fetchall()
 
+    def get_name(self):
+        lis = self.conn.execute('SELECT NAME FROM volley_player').fetchall()
+        name = []
+        for i in lis:
+            name.append(i[0])
+        return name
+
     def get_all_by_name(self, player_name):
         cursor = self.conn.cursor()
         try:
@@ -143,5 +150,5 @@ if __name__ == "__main__":
     print(test.get_role_by_name(name))
     print(test.get_height_by_name(name))
     print(test.get_nationality_by_name(name))
-    print(test.get_all_by_name(name))
+    print(test.get_name())
     test.close_con()
