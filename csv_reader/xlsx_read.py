@@ -1,32 +1,30 @@
 import sqlite3
 import pandas as pd
 
-'''possibili aggiunte sistema di gestione csv e xls caricamneto/salvataggio INTELIGENTE'''
-
 
 class DataBase():
     """
-    Class that import from an xlsx, instantiate and handle the database of player
-    contain several function to reacall info from database
+    Class that imports data from an xls file, instantiates and handles the database of volleyball players of
+    the Italian A1 Series. It contains several functions to recall info from the database.
 
-    :var self._table_name: The name of core table
-    :type self._table_name: str
-    :var self._df: pandas dataframe containing dataset of player
+    :var self._table_name: the name of the core table
+    :type self._table_name: String
+    :var self._df: pandas dataframe containing the dataset of players
     :type self._df: pandas.DataFrame
     """
 
-    def __init__(self):
+    def __init__(self, file_full_path):
         """
-        Constructor method
+        Constructor method.
         """
         self._table_name = "volley_player"
-        self._df = pd.read_excel("Data/dataset_volley.xlsx")
+        self._df = pd.read_excel(file_full_path)
         self._connect()
         self._create_team()
 
     def _connect(self):
         """
-        Load dataset from dataframe
+        Load dataset from dataframe.
 
         :var self.conn: loaded dataset in sqlite3
         :type self.conn: sqlite3.Connection
@@ -39,9 +37,9 @@ class DataBase():
 
     def _create_team(self):
         """
-        Generate a table whit primary key team name
+        Generate a table whit primary key team name.
 
-        :var self.cursor: The cursor obj of dataset
+        :var self.cursor: the cursor obj of dataset
         :type self.cursor: sqlite3.cursor
         """
         cursor = self.conn.cursor()
@@ -50,28 +48,28 @@ class DataBase():
 
     def show_all(self):
         """
-        Function that select all data of dateset and print them
+        Function that selects all data of dataset and prints them.
 
-        :return: All data of players
-        :rtype: list
+        :return: all data of players
+        :rtype: List
         """
         return self.conn.execute("SELECT * FROM volley_player").fetchall()
 
     def show_col(self):
         """
-        Extract from dataset all columns name
+        Function that extracts from dataset all columns' names.
 
-        :return: Columns name
-        :rtype: list
+        :return: columns' names
+        :rtype: List
         """
         return self.conn.execute("PRAGMA table_info(volley_player);").fetchall()
 
     def get_name(self):
         """
-        Extract from dataset all name of player
+        Function that extracts from dataset all names of the players.
 
-        :return: Players name
-        :rtype: list
+        :return: players' names
+        :rtype: List
         """
         lis = self.conn.execute('SELECT NAME FROM volley_player').fetchall()
         name = []
@@ -81,11 +79,11 @@ class DataBase():
 
     def get_all_by_name(self, player_name):
         """
-        Extract from dataset all info of selected player
+        Function that extracts from dataset all info of the selected player.
 
-        :param player_name: Full name of player searched
-        :return: Info of selected player
-        :rtype: list
+        :param player_name: full name of the player searched
+        :return: info of the selected player
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -97,16 +95,16 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def get_team_by_name(self, player_name):
         """
-        Extract from dataset the name of the team to which the selected player belongs
+        Function that extracts from dataset the name of the team to which the selected player belongs
 
-        :param player_name: Full name of player searched
+        :param player_name: full name of the player searched
         :return: team name
-        :rtype: list
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -118,16 +116,16 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def get_role_by_name(self, player_name):
         """
-        Extract from dataset the role of the selected player
+        Function that extracts from dataset the role of the selected player.
 
-        :param player_name: Full name of player searched
-        :return: player roles
-        :rtype: list
+        :param player_name: full name of the player searched
+        :return: player's role
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -139,16 +137,16 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def get_height_by_name(self, player_name):
         """
-        Extract from dataset height of the selected player
+        Function that extracts from dataset the height of the selected player.
 
-        :param player_name: Full name of player searched
-        :return: player heights
-        :rtype: list
+        :param player_name: full name of the player selected
+        :return: player's height
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -160,16 +158,16 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def get_nationality_by_name(self, player_name):
         """
-        Extract from dataset nationality of the selected player
+        unction that extracts from dataset the nationality of the selected player.
 
-        :param player_name: Full name of player searched
-        :return: player nationalities
-        :rtype: list
+        :param player_name: full name of the player selected.
+        :return: player's nationality
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -181,16 +179,16 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def get_birth_by_name(self, player_name):
         """
-        Extract from dataset year of birth of the selected player
+        Function that extracts from dataset the year of birth of the selected player.
 
-        :param player_name: Full name of player searched
-        :return: player year of births
-        :rtype: list
+        :param player_name: full name of the player selected
+        :return: player's year of birth
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -202,16 +200,16 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def get_player_by_team(self, team):
         """
-        Extract form dataset names of all players belonging to a team
+        Function that extracts form dataset the names of all players belonging to the same team.
 
-        :param team: Name of a team
-        :return: Players names
-        :rtype: list
+        :param team: name of a team
+        :return: players' names
+        :rtype: List
         """
         cursor = self.conn.cursor()
         try:
@@ -223,14 +221,17 @@ class DataBase():
             return None
 
         except sqlite3.Error:
-            print("A error has occured")
+            print("A error has occurred.")
             return None
 
     def close_con(self):
+        """
+        Connection closed.
+        """
         self.conn.close()
 
 
-# testing thing
+# testing
 if __name__ == "__main__":
     test = DataBase()
     name = "SALA CHIARA"
