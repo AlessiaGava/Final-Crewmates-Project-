@@ -1,4 +1,11 @@
-from .csv_read import DataBase as db
+from csv_reader.csv_read import DataBase as db #questo è da sistemare
+
+
+def exist_player(db_manager, volley_player):
+
+    if volley_player in db_manager.get_name():
+        return True
+    return False
 
 
 def check_player_all_stats(db_manager, volley_player):
@@ -117,6 +124,7 @@ if __name__ == "__main__":
     data = db()
 
     print(check_team(data, team))
+    print(exist_player(data,play))
 
     print(check_player_all_stats(data, play))
     print(check_player_team(data, play))
