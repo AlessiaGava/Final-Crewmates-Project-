@@ -107,8 +107,3 @@ def check_team(db_manager, team_name):
         if players:
             return f'The volley players of {team_name} are: {", ".join(x[0] for x in players)}.'
         return f"Sorry, we don't know who are the players of {team_name}."
-
-    return None
-
-if __name__ == '__main__':
-    print(ce)
