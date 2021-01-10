@@ -1,4 +1,4 @@
-from csv_reader.csv_read import DataBase as db
+from csv_reader.xlsx_read import DataBase as db
 
 #to be completed
 def check_player_all_stats(db_manager, volley_player):
