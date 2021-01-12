@@ -7,7 +7,7 @@ import xls_reader.xls_read as xls_read
 
 # Definition of positional and optional arguments
 parser = argparse.ArgumentParser()
-
+# The path must contain also the name of the xls file
 parser.add_argument("xlsfile_fullpath", help="insert the full path of the xls file")
 parser.add_argument("-v", "--verbosity", action="count", help="increase output verbosity")
 # -v additional info for the user
