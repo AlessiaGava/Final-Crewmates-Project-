@@ -1,6 +1,6 @@
 import unittest
-import function
-import xls_read
+import xls_reader.function as function
+import xls_reader.xls_read as xls_read
 
 
 class TestFunctions(unittest.TestCase):
