@@ -1,4 +1,4 @@
-from xls_read import DataBase
+from xls_reader.xls_read import DataBase
 
 
 def exist_db(my_db):
