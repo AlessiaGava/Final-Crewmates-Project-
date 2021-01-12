@@ -1,5 +1,5 @@
 import sys
-import function
+import xls_reader.function as function
 from os import system
 from time import sleep
 

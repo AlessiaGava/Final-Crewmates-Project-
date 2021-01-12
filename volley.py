@@ -1,9 +1,9 @@
 from os import system
 from time import sleep
 import argparse
-import extra_function
-import function
-import xls_read
+from xls_reader import extra_function
+import xls_reader.function as function
+import xls_reader.xls_read as xls_read
 
 # Definition of positional and optional arguments
 parser = argparse.ArgumentParser()
