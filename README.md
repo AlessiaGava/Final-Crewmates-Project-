@@ -86,7 +86,7 @@ In this .py file we imported:
 - ```os.system``` that executes the command in a subshell.
 - ```time.sleep``` to suspend the execution of the current thread for a given number of seconds and to create a sort of delay.
 - ```argparse``` that provides the arguments required by the user.
-- ```extra_function```, ```function``` and ```xlsx_read``` that are some of our .py files.
+- ```xls_reader.extra_function```, ```xls_reader.function``` and ```xls_reader.xls_read``` that are some of our .py files.
 
 ### requirements.txt
 
