@@ -1,7 +1,7 @@
 # Final-Crewmates-Project-
 
-# What are the charcateristics of your favorite female volleyball player?
-# How is your favorite volleyball team composed?
+## What are the characteristics of your favorite female volleyball player?
+## How is your favorite volleyball team composed?
 
 ### Our goal
 
@@ -11,7 +11,7 @@ In this repository, it’s possible to find all the necessary things to reach th
 
 ### UML Volley Project
 
-It is possible to find the image of the UML of our project in the repository.
+It is possible to find the image ```UML_Volley_Project.JPG``` in the repository.
 
 ### Dataset Volley
 
@@ -90,4 +90,4 @@ In this .py file we imported:
 
 ### requirements.txt
 
-It is possible to find the requirements file in our repository. It contains the python packages required to run the program.
+It is possible to find the file ```requirements.txt``` in our repository. It contains the python packages required to run the program.
